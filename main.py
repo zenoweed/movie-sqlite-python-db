@@ -62,14 +62,20 @@ def QueryAll_db():
   # Connects to database
 
   conn = sqlite3.connect('movies.db')
-  print ("Opened database successfully");
+  print ("Opened database successfully\n");
 
   # create curson
   c = conn.cursor()
 
   # query into table
   c.execute("SELECT * FROM movies")
-  print (c.fetchall())
+  #print (c.fetchall())
+  for row in c:
+   print ("Movie Name: ", row[0])
+   print ("Actor: ", row[1])
+   print ("Actress: ", row[2])
+   print ("Director: ", row[3])
+   print ("Year of release: ", row[4], "\n")
 
   # Acknowledgement
   print ("Movie Queried!")
@@ -79,6 +85,36 @@ def QueryAll_db():
 
   # close connection to db
   conn.close()
+
+def QueryPara_db():
+  # Connects to database
+
+  conn = sqlite3.connect('movies.db')
+  print ("Opened database successfully\n");
+
+  # create curson
+  c = conn.cursor()
+  # query into table
+  b_name = input ("Actors name: ")
+  select_statement= "SELECT * FROM movies WHERE actor = '" + b_name + "'"
+  c.execute(select_statement)
+
+  for row in c:
+   print ("Movie Name: ", row[0])
+   print ("Actor: ", row[1])
+   print ("Actress: ", row[2])
+   print ("Director: ", row[3])
+   print ("Year of release: ", row[4], "\n")
+
+  # Acknowledgement
+  print ("Movie Queried!")
+
+  # commit to db
+  conn.commit()
+
+  # close connection to db
+  conn.close()
+
 
 i = input("""
 Input:
@@ -108,7 +144,7 @@ while i > 0:
     break
 
   elif i==4:
-    print ("TBA")
+    QueryPara_db()
     break
 
   else:
