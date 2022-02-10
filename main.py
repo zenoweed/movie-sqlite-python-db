@@ -1,13 +1,21 @@
-import sqlite3
-import jaydebeapi
+# python movies sqlite database
+# todo
+# 1. implement classes
 
-database= "movies.db"
+import sqlite3
+
+class db:
+  def create_table_db()
+  def insert_db()
+  def QueryAll_db()
+  def QueryPara_db()
+
 
 def create_table_db():
 
   # Connects to database
 
-  conn = jaydebeapi.connect("org.sqlite.JDBC",f"""jdbc:sqlite:{database}""",None,"sqlite-jdbc-3.36.0.3.jar")
+  conn = sqlite3.connect('movies.db')
   print ("Opened database successfully");
 
   # create curson
@@ -35,7 +43,7 @@ def insert_db():
 
   # Connects to database
 
-  conn = jaydebeapi.connect("org.sqlite.JDBC",f"""jdbc:sqlite:{database}""",None,"sqlite-jdbc-3.36.0.3.jar")
+  conn = sqlite3.connect('movies.db')
   print ("Opened database successfully");
 
   # create curson
@@ -64,7 +72,7 @@ def insert_db():
 def QueryAll_db():
   # Connects to database
 
-  conn = jaydebeapi.connect("org.sqlite.JDBC",f"""jdbc:sqlite:{database}""",None,"sqlite-jdbc-3.36.0.3.jar")
+  conn = sqlite3.connect('movies.db')
   print ("Opened database successfully\n");
 
   # create curson
@@ -92,7 +100,7 @@ def QueryAll_db():
 def QueryPara_db():
   # Connects to database
 
-  conn = jaydebeapi.connect("org.sqlite.JDBC",f"""jdbc:sqlite:{database}""",None,"sqlite-jdbc-3.36.0.3.jar")
+  conn = sqlite3.connect('movies.db')
   print ("Opened database successfully\n");
 
   # create curson
